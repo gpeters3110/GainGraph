@@ -1,29 +1,23 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
-import { Language, german } from './model/Language';
+import { ThemeContext } from '@emotion/react';
 
-export const LanguageContext = React.createContext({ language: german, setLanguage: (l: Language)=> { }});
+export const DarkModeContext = React.createContext({ darkMode: false, setDarkMode:(foo:any)=> { }});
+const App = () => {
+  const [darkMode, setDarkMode] = useState(false)
+  const value = { darkMode, setDarkMode };
+  
+  return (
+    <div className="App">
+      <DarkModeContext.Provider value={value}>
 
-class App extends Component {
-  setLanguage(l: Language) {
-    this.setState({language: l})
-  }
-  state = {
-    language: german
-  }
+        <NavBar></NavBar>
+      </DarkModeContext.Provider>
 
-  render() {
-    return (
-      <div className="App">
-        <LanguageContext.Provider value={{ language: this.state.language, setLanguage: this.setLanguage }}>
-
-          <NavBar></NavBar>
-        </LanguageContext.Provider>
-      </div>
-    );
-  }
+    </div>
+  );
+  
 }
 
 export default App;
