@@ -3,6 +3,9 @@ import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import { ThemeProvider, createTheme } from '@mui/material';
 import { blueGrey } from '@mui/material/colors';
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import Analysis from './Route/Analysis/Analysis';
+import Training from './Route/Training/Training';
 
 export const DarkModeContext = React.createContext({ darkMode: false, setDarkMode:(foo:any)=> { }});
 const App = () => {
@@ -26,14 +29,19 @@ const App = () => {
   })
   return (
     <div className="App">
-      <ThemeProvider theme={darkMode?darkTheme:lightTheme}>
-        <DarkModeContext.Provider value={value}>
+      <Router>
+        <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+          <DarkModeContext.Provider value={value}>
 
-          <NavBar></NavBar>
-        </DarkModeContext.Provider>
+            <NavBar></NavBar>
+          </DarkModeContext.Provider>
 
-      </ThemeProvider>
-
+        </ThemeProvider>
+        <Routes>
+          <Route path='/analysis' Component={Analysis} />
+          <Route path='/training' Component={Training}/>
+        </Routes>
+      </Router>      
     </div>
   );
   
