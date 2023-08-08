@@ -12,7 +12,7 @@ const NavBar: FC<NavBarProps> = () => {
    return (
       <NavBarWrapper>
          <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
+            <AppBar position="static" color="primary" enableColorOnDark>
                <Toolbar>
                   {t("AppName")}
                   <Box sx={{flexGrow:1}}></Box>
