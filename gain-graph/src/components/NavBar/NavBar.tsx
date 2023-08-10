@@ -7,6 +7,7 @@ import DarkModeSwitch from '../DarkModeSwitch/DarkModeSwitch';
 import { CgGym } from 'react-icons/cg'
 import { BsGraphUpArrow } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom';
+import Logout from '../Logout/Logout';
 interface NavBarProps { }
 
 const NavBar: FC<NavBarProps> = () => {
@@ -25,6 +26,7 @@ const NavBar: FC<NavBarProps> = () => {
                   <IconButton onClick={analysis}><BsGraphUpArrow /></IconButton>
                   <LanguageSelector></LanguageSelector>
                   <DarkModeSwitch></DarkModeSwitch>
+                  <Logout/>
                </Toolbar>
             </AppBar>
          </Box>
