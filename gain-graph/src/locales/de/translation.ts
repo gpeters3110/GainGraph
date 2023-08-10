@@ -1,3 +1,6 @@
 export default {
-    AppName: "GainGraph"
-}
+    AppName: 'GainGraph',
+    Username: 'Nutzername',
+    Password: 'Passwort',
+    SignIn: 'Anmelden'
+};
