@@ -11,7 +11,7 @@ const Logout: FC<LogoutProps> = () => {
    const { token, setToken } = useContext(TokenContext);
    return (
       <LogoutWrapper>
-         <IconButton onClick={()=>setToken("")}><RiShutDownLine /></IconButton>
+         <IconButton onClick={()=>setToken(null)}><RiShutDownLine /></IconButton>
       </LogoutWrapper>
    )
 };

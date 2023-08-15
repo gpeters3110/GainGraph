@@ -11,17 +11,17 @@ const Login: FC<LoginProps> = (props) => {
    const { token, setToken } = useContext(TokenContext);
    async function handleSubmit(event: FormEvent<HTMLFormElement>) {
       event.preventDefault();
-      const token = await fetch(`http://${config.serverIp}:${config.serverPort}/login`, {
+      const token = await fetch(`http://${config.serverIp}:${config.serverPort}/user`, {
          method: 'POST',
          headers: {
             'Content-Type': 'application/json'
          },
          body: JSON.stringify({ username, password })
       }).then(res => {
-         return res.json();
+         return res.json().then(v=>v.token);
       }).catch(reason => {
          console.error(reason);
-         return "";
+         return null;
       })
       setToken(token)
 
